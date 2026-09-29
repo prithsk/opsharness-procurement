@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opsharness-procurement"
+version = "0.1.0"
+description = "An open hardware procurement agent that runs on the opsharness agent harness"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = ["opsharness @ git+https://github.com/prithsk/opsharness@v0.2.0"]
+
+[project.entry-points."opsharness.worlds"]
+procurement = "opsharness_procurement.world:ProcurementEnv"
+
+[tool.setuptools]
+packages = ["opsharness_procurement"]
+
+[tool.setuptools.package-data]
+opsharness_procurement = ["*.md"]
